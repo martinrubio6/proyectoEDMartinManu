@@ -1,9 +1,10 @@
-
-
 package ed;
 
 import ed.tdas.Position;
 import ed.tdas.excepciones.*;
+import ed.tdas.tdaarbol.Tree;
+import ed.tdas.tdadiccionario.DiccionarioHashAbierto;
+import ed.tdas.tdalista.DoubleLinkedList;
 import ed.tdas.tdalista.PositionList;
 
 /**
@@ -19,7 +20,7 @@ public class MotorDeliberacion {
     /**
      * Incluir los atributos necesarios para el desarrollo.
      */
-
+    private Tree<Opinion> arbol;
     /**
      * Constructor de la clase MotorDeliveracion.
      * Inicializa el árbol de debate, y las estructuras correspondientes.  
@@ -53,6 +54,8 @@ public class MotorDeliberacion {
  */
     public String deshacerUltimaOperacion() throws EmptyStackException {
         //TODO: Implementar la funcionalidad de deshacer la última operación registrada.
+        String toRet = "";
+        return toRet;
     }
 /**
  * Crea un nuevo debate con un argumento raíz.
@@ -95,6 +98,8 @@ public class MotorDeliberacion {
     //consultar por usuario, devuelve una lista de argumentos que pertenecen a ese usuario.
     public PositionList<Opinion> consultarArgumentosPorUsuario(String idUsuario) {
     //TODO: Implementar la funcionalidad de consultar los argumentos de un usuario específico en el debate.
+        PositionList<Opinion> toRet = new DoubleLinkedList<Opinion>();
+        return toRet;
     }
 
     /**
@@ -105,7 +110,9 @@ public class MotorDeliberacion {
      * "AFAVOR" y "ENCONTRA" y sus respectivos conteos.
      */
     public DiccionarioHashAbierto<String,DiccionarioHashAbierto<String,Integer>> calcularPolarizacionDebate(){
-        //TODO
+        DiccionarioHashAbierto<String, DiccionarioHashAbierto<String, Integer>> toRet = new DiccionarioHashAbierto<String, DiccionarioHashAbierto<String, Integer>>();
+        // TODO
+        return toRet;
     }
 
      /**
@@ -116,9 +123,11 @@ public class MotorDeliberacion {
     * @return Un DiccionarioHashAbierto<String,Integer> que contiene la polarización del nodo, con las claves "AFAVOR" y "ENCONTRA" y sus respectivos conteos.
     */
     public DiccionarioHashAbierto<String,Integer> calcularPolarizacionNodo(String idNodo){
-        //TODO
-
+        DiccionarioHashAbierto<String, Integer> toRet = new DiccionarioHashAbierto<String, Integer>();
+        // TODO
+        return toRet;
     }
+    
  /*** Mostrar árbol por consola ***/
  
     /**
@@ -147,7 +156,7 @@ public class MotorDeliberacion {
      * conectores tipo "├──" / "└──" para el nivel actual.
      */
     private void imprimirHijos(Position<Opinion> nodo, String prefijo) throws InvalidPositionException {
-        PositionList<Position<Opinion>> hijos = new ListaDoblementeEnlazada<Position<Opinion>>();
+        PositionList<Position<Opinion>> hijos = new DoubleLinkedList<Position<Opinion>>();
         for (Position<Opinion> hijo : arbol.children(nodo)) {
             hijos.addLast(hijo);
         }
