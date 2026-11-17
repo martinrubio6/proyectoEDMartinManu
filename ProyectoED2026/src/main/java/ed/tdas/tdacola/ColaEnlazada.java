@@ -15,7 +15,7 @@ public class ColaEnlazada<E> implements Queue<E>{
 	}
 	
 	public void enqueue(E elem) {
-		ed.tdas.tdapila.Nodo<E> nodo = new Nodo<E>();
+		Nodo<E> nodo = new Nodo<E>();
 		nodo.setElem(elem);
 		nodo.setSig(null);
 		if(size==0)
@@ -27,7 +27,7 @@ public class ColaEnlazada<E> implements Queue<E>{
 	}
 
 	
-	public E dequeue() throws EmptyQueueException {
+	public E dequeue() {
 		if(size==0)
 			throw new EmptyQueueException("Cola vacia");
 		
@@ -40,7 +40,7 @@ public class ColaEnlazada<E> implements Queue<E>{
 		return aux;
 	}
 
-	public E front() throws EmptyQueueException {
+	public E front() {
 		E aux;
 		if(size==0)
 		throw new EmptyQueueException("Cola vacia");

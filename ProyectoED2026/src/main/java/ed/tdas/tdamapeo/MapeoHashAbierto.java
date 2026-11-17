@@ -42,7 +42,7 @@ public class MapeoHashAbierto<K, V> implements Map<K, V> {
 	}
 
 	@Override
-	public V get(K key) throws InvalidKeyException {
+	public V get(K key) {
 		checkKey(key);
 		V ret = null;
 		int clave = hash(key);
@@ -60,7 +60,7 @@ public class MapeoHashAbierto<K, V> implements Map<K, V> {
 	}
 
 	@Override
-	public V put(K key, V value) throws InvalidKeyException {
+	public V put(K key, V value) {
 		checkKey(key);
 		V ret = null;
 		int clave = hash(key);
@@ -90,7 +90,7 @@ public class MapeoHashAbierto<K, V> implements Map<K, V> {
 	}
 
 	@Override
-	public V remove(K key) throws InvalidKeyException {
+	public V remove(K key) {
 		checkKey(key);
 		V valor = null;
 		int clave = hash(key);
@@ -164,7 +164,7 @@ public class MapeoHashAbierto<K, V> implements Map<K, V> {
 		A = T;
 	}
 
-	private void checkKey(K key) throws InvalidKeyException {
+	private void checkKey(K key) {
 		if (key == null) {
 			throw new InvalidKeyException("Clave invalida");
 		}

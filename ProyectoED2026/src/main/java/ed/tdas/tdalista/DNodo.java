@@ -13,11 +13,6 @@ public class DNodo<E> implements Position<E> {
 		elem = e;
 	}
 
-	public DNodo(E e) {
-		this(null, null, e);
-	}
-
-	@Override
 	public E element() {
 		return elem;
 	}

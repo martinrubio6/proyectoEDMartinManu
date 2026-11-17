@@ -10,17 +10,6 @@ public class Nodo<E> {
 		siguiente = null;
 	}
 
-	public Nodo(E elem) {
-		elemento = elem;
-		siguiente = null;
-
-	}
-
-	public Nodo(E elem, Nodo<E> sig) {
-		elemento = elem;
-		siguiente = sig;
-	}
-
 	public E getElem() {
 		return elemento;
 	}

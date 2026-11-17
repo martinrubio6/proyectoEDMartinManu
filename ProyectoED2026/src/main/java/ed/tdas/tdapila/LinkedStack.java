@@ -18,11 +18,10 @@ public class LinkedStack<E> implements Stack<E>{
 		aux.setSig(head);
 		head=aux;
 		size++;
-		
 	}
 
 	
-	public E pop() throws EmptyStackException {
+	public E pop() {
 		E aux;
 		if(head==null) 
 			throw new EmptyStackException("Pila vacia");
@@ -36,7 +35,7 @@ public class LinkedStack<E> implements Stack<E>{
 	}
 
 	
-	public E top() throws EmptyStackException {
+	public E top() {
 		E aux;
 		if(head==null) 
 			throw new EmptyStackException("Pila vacia");

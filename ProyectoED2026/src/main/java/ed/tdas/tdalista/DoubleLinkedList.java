@@ -21,7 +21,7 @@ public class DoubleLinkedList<E> implements PositionList<E> {
 		header.setNext(trailer);
 	}
 
-	private DNodo<E> checkPosition(Position<E> p) throws InvalidPositionException {
+	private DNodo<E> checkPosition(Position<E> p) {
 		if (p == null || p == header || p == trailer)
 			throw new InvalidPositionException("Se ha pasado una posicion nula");
 		try {
@@ -42,13 +42,13 @@ public class DoubleLinkedList<E> implements PositionList<E> {
 		return (size == 0);
 	}
 
-	public Position<E> first() throws EmptyListException {
+	public Position<E> first() {
 		if (isEmpty())
 			throw new EmptyListException("La lista esta vacia");
 		return header.getNext();
 	}
 
-	public Position<E> prev(Position<E> p) throws InvalidPositionException, BoundaryViolationException {
+	public Position<E> prev(Position<E> p) {
 		DNodo<E> v = checkPosition(p);
 		DNodo<E> prev = v.getPrev();
 		if (prev == header)
@@ -56,7 +56,7 @@ public class DoubleLinkedList<E> implements PositionList<E> {
 		return prev;
 	}
 
-	public void addBefore(Position<E> p, E element) throws InvalidPositionException {
+	public void addBefore(Position<E> p, E element) {
 		DNodo<E> v = checkPosition(p);
 		size++;
 		DNodo<E> newNode = new DNodo<E>(v.getPrev(), v, element);
@@ -71,7 +71,7 @@ public class DoubleLinkedList<E> implements PositionList<E> {
 		header.setNext(newNode);
 	}
 
-	public E remove(Position<E> p) throws InvalidPositionException {
+	public E remove(Position<E> p) {
 		DNodo<E> v = checkPosition(p);
 		size--;
 		DNodo<E> vPrev = v.getPrev();
@@ -86,7 +86,7 @@ public class DoubleLinkedList<E> implements PositionList<E> {
 		return vElem;
 	}
 
-	public E set(Position<E> p, E element) throws InvalidPositionException {
+	public E set(Position<E> p, E element) {
 		DNodo<E> v = checkPosition(p);
 		E oldElt = v.element();
 		v.setElemento(element);
@@ -102,13 +102,13 @@ public class DoubleLinkedList<E> implements PositionList<E> {
 
 	}
 
-	public Position<E> last() throws EmptyListException {
+	public Position<E> last() {
 		if (isEmpty())
 			throw new EmptyListException("La lista esta vacia");
 		return trailer.getPrev();
 	}
 
-	public Position<E> next(Position<E> p) throws InvalidPositionException, BoundaryViolationException {
+	public Position<E> next(Position<E> p) {
 		DNodo<E> v = checkPosition(p);
 		DNodo<E> next = v.getNext();
 		if (next == trailer)
@@ -117,7 +117,7 @@ public class DoubleLinkedList<E> implements PositionList<E> {
 		return next;
 	}
 
-	public void addAfter(Position<E> p, E e) throws InvalidPositionException {
+	public void addAfter(Position<E> p, E e) {
 		DNodo<E> v = checkPosition(p);
 		size++;
 		DNodo<E> newNode = new DNodo<E>(v, v.getNext(), e);

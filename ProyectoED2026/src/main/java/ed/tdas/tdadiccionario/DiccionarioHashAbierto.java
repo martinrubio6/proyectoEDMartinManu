@@ -43,7 +43,7 @@ public class DiccionarioHashAbierto<K, V> implements Dictionary<K, V> {
 	}
 
 	@Override
-	public Entry<K, V> find(K key) throws InvalidKeyException {
+	public Entry<K, V> find(K key) {
 		checkKey(key);
 		Entry<K, V> ret = null;
 		int clave = H(key);
@@ -61,7 +61,7 @@ public class DiccionarioHashAbierto<K, V> implements Dictionary<K, V> {
 	}
 
 	@Override
-	public Iterable<Entry<K, V>> findAll(K key) throws InvalidKeyException {
+	public Iterable<Entry<K, V>> findAll(K key) {
 		checkKey(key);
 		PositionList<Entry<K, V>> lista = new DoubleLinkedList<Entry<K, V>>();
 		int clave = H(key);
@@ -75,7 +75,7 @@ public class DiccionarioHashAbierto<K, V> implements Dictionary<K, V> {
 	}
 
 	@Override
-	public Entry<K, V> insert(K key, V value) throws InvalidKeyException {
+	public Entry<K, V> insert(K key, V value) {
 		checkKey(key);
 
 		if ((double) n / N >= fc) {
@@ -89,7 +89,7 @@ public class DiccionarioHashAbierto<K, V> implements Dictionary<K, V> {
 	}
 
 	@Override
-	public Entry<K, V> remove(Entry<K, V> e) throws InvalidEntryException {
+	public Entry<K, V> remove(Entry<K, V> e) {
 		if (e == null || e.getKey() == null) {
 			throw new InvalidEntryException("Entrada Invalida");
 		}
@@ -129,7 +129,7 @@ public class DiccionarioHashAbierto<K, V> implements Dictionary<K, V> {
 		return lista;
 	}
 
-	private void checkKey(K key) throws InvalidKeyException {
+	private void checkKey(K key) {
 		if (key == null) {
 			throw new InvalidKeyException("Clave invalida");
 		}

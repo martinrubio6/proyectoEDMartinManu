@@ -31,7 +31,7 @@ public class ElementIterator<E> implements Iterator<E> {
 	}
 
 	@Override
-	public E next() throws NoSuchElementException {
+	public E next() {
 		if(cursor==null)
 			throw new NoSuchElementException("Error: No hay siguiente");
 		E toReturn= cursor.element();
