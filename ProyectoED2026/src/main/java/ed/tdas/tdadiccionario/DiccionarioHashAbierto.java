@@ -19,17 +19,13 @@ public class DiccionarioHashAbierto<K, V> implements Dictionary<K, V> {
 	protected static final double fc = 0.9;
 
 	@SuppressWarnings("unchecked")
-	public DiccionarioHashAbierto(int tam) {
-		N = tam;
+	public DiccionarioHashAbierto() {
+		N = 13;
 		n = 0;
 		A = (PositionList<Entrada<K, V>>[]) new PositionList[N];
 		for (int i = 0; i < N; i++) {
 			A[i] = new DoubleLinkedList<Entrada<K, V>>();
 		}
-	}
-
-	public DiccionarioHashAbierto() {
-		this(13);
 	}
 
 	private int H(K key) {

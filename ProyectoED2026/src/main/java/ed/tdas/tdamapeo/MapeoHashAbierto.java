@@ -22,17 +22,13 @@ public class MapeoHashAbierto<K, V> implements Map<K, V> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public MapeoHashAbierto(int tam) {
-		N = tam;
+	public MapeoHashAbierto() {
+		N = 13;
 		n = 0;
 		A = (PositionList<Entrada<K, V>>[]) new PositionList[N];
 		for (int i = 0; i < N; i++) {
 			A[i] = new DoubleLinkedList<Entrada<K, V>>();
 		}
-	}
-
-	public MapeoHashAbierto() {
-		this(13);
 	}
 
 	@Override

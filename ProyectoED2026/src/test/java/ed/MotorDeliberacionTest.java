@@ -7,9 +7,6 @@ import static org.junit.Assert.*;
 import ed.tdas.excepciones.EmptyStackException;
 import ed.tdas.tdadiccionario.DiccionarioHashAbierto;
 import ed.tdas.tdalista.PositionList;
-import ed.MotorDeliberacion;
-import ed.Opinion;
-import ed.Usuario;
 
 /**
  * Tests de MotorDeliveracion (JUnit 4).

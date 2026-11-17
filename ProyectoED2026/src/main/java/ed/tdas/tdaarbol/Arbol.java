@@ -228,7 +228,7 @@ public class Arbol<E> implements Tree<E> {
 		TNodo<E> nodo = checkPosition(p);
 		if (isExternal(p))
 			throw new InvalidPositionException("p no es un nodo interno");
-		if (nodo == raiz)
+		if (nodo == raiz) {
 			if (nodo.getHijos().size() > 1)
 				throw new InvalidPositionException("el nodo raiz a eliminar no puede tener mas de 1 hijo");
 			else {
@@ -241,7 +241,7 @@ public class Arbol<E> implements Tree<E> {
 					System.out.println(e.getMessage());
 				}
 			}
-		else {
+		} else {
 			TNodo<E> pa = nodo.getPadre();
 			PositionList<TNodo<E>> hijos = pa.getHijos();
 			Iterator<Position<TNodo<E>>> it = hijos.positions().iterator();
@@ -266,8 +266,8 @@ public class Arbol<E> implements Tree<E> {
 			it = hijosN.positions().iterator();
 			while (it.hasNext())
 				hijosN.remove(it.next());
-			size--;
 		}
+		size--;
 	}
 
 	public void removeNode(Position<E> p) throws InvalidPositionException {
@@ -323,34 +323,4 @@ public class Arbol<E> implements Tree<E> {
 			preordenIT(list, h);
 	}
 
-	public void insertarHijoAltura(int alt, E rotulo) {
-
-		for (Position<E> pos : positions())
-			if (altura(pos) == alt) {
-				try {
-					addLastChild(pos, rotulo);
-				} catch (InvalidPositionException e) {
-					e.printStackTrace();
-				}
-
-			}
-
-	}
-
-	private int altura(Position<E> v) {
-		int salida = 0;
-		try {
-			if (isExternal(v))
-				salida = 0;
-			else {
-				int h = 0;
-				for (Position<E> w : children(v))
-					h = Math.max(h, altura(w));
-				salida = 1 + h;
-			}
-		} catch (InvalidPositionException e) {
-			e.printStackTrace();
-		}
-		return salida;
-	}
 }
